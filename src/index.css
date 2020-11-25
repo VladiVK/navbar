@@ -157,6 +157,7 @@ nav {
   transition: var(--transition);
   cursor: pointer;
 }
+ 
 .nav-toggle:hover {
   color: var(--clr-primary-1);
   transform: rotate(90deg);
@@ -181,15 +182,24 @@ nav {
 .social-icons {
   display: none;
 }
+/* **************************************** */
+/*
+важно до использование useRef()
+ это все для анимации
+изначально высота 0, добавляем по нажатию кнопки класс show-container
+*/
+
+
 .links-container {
   height: 0;
   overflow: hidden;
   transition: var(--transition);
 }
+/* в итоге не нужнен */
 .show-container {
   height: 10rem;
 }
-
+/* **************************************** */
 @media screen and (min-width: 800px) {
   .nav-center {
     max-width: 1170px;
@@ -206,6 +216,7 @@ nav {
     display: none;
   }
   .links-container {
+    /* we need !important because in <Navbar /> we have priority of inline styles */
     height: auto !important;
   }
   .links {
